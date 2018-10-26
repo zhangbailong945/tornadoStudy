@@ -2,8 +2,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 <title>聊天室</title>
-<link rel="stylesheet" type="text/css" href="css/chat.css" />
-<link rel="stylesheet" type="text/css" href="./plugins/layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="{{ static_url('css/chat.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ static_url('layui/css/layui.css') }}" />
 
 
 <!--[if lt IE 7]>
@@ -16,7 +16,7 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
 </script>
 <![endif]-->
 </head>
-<body class="keBody" onbeforeunload="return userExit()" >
+<body class="keBody">
 <h1 class="keTitle">聊天室</h1>
 <div class="kePublic">
 <!--效果html开始-->
@@ -31,10 +31,16 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
                     </div>
                     <div class="chat01_content">
                         <div class="message_box mes1">
+                        
+
+
                         </div>
                         <div class="message_box mes2">
                         </div>
-                        <div class="message_box mes3" style="display: block;">
+                        <div class="message_box mes3" style="display: block;" id="inbox">
+                                {% for message in messages %}
+                                {% module Template("message.html", message=message) %}
+                                {% end %}
                         </div>
                         <div class="message_box mes4">
                         </div>
@@ -77,85 +83,85 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
                                 <div class="wl_faces_main">
                                     <ul>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_01.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_02.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_03.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_01.gif') }}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_02.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_03.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_04.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_05.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_06.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_04.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_05.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_06.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_07.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_08.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_09.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_07.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_08.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_09.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_10.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_11.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_12.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_10.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_11.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_12.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_13.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_14.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_15.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_13.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_14.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_15.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_16.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_17.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_18.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_16.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_17.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_18.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_19.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_20.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_21.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_19.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_20.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_21.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_22.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_23.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_24.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_22.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_23.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_24.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_25.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_26.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_27.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_25.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_26.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_27.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_28.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_29.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_30.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_28.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_29.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_30.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_31.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_32.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_33.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_31.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_32.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_33.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_34.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_35.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_36.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_34.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_35.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_36.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_37.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_38.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_39.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_37.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_38.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_39.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_40.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_41.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_42.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_40.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_41.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_42.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_43.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_44.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_45.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_43.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_44.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_45.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_46.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_47.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_48.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_46.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_47.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_48.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_49.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_50.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_51.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_49.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_50.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_51.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_52.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_53.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_54.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_52.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_53.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_54.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_55.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_56.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_57.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_55.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_56.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_57.gif')}}" /></a></li>
                                         <li><a href="javascript:;">
-                                            <img src="img/emo_58.gif" /></a></li><li><a href="javascript:;">
-                                                <img src="img/emo_59.gif" /></a></li><li><a href="javascript:;">
-                                                    <img src="img/emo_60.gif" /></a></li>
+                                            <img src="{{ static_url('img/emo_58.gif')}}" /></a></li><li><a href="javascript:;">
+                                                <img src="{{ static_url('img/emo_59.gif')}}" /></a></li><li><a href="javascript:;">
+                                                    <img src="{{ static_url('img/emo_60.gif')}}" /></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,18 +169,21 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
                             </div>
                         </div>
                     </div>
+                    <form action="/a/message/new" method="post" id="messageform">
                     <div class="chat02_content">
-                        <textarea id="textarea"></textarea>
+                        <textarea id="message" name="body"></textarea>
                     </div>
                     <div class="chat02_bar">
                         <ul>
                             <li style="left: 20px; top: 10px; padding-left: 30px;"><a href="#" id="current" target="_blank"></a></li>
-                            <li style="right: 5px; top: 5px;"><a href="javascript:;">
-                                <img id="send" src="img/send_btn.jpg"></a>
-                                <a><img id="quit" src="img/exit_btn.jpg"></a>
+                            <li style="right: 5px; top: 5px;"><a>
+                                <img id="send"  src="{{ static_url('img/send_btn.jpg')}}"></a>
+                                <a><img id="quit" src="{{ static_url('img/exit_btn.jpg')}}"></a>
                                 </li>
                         </ul>
                     </div>
+                    {% module xsrf_form_html() %}
+                    </form> 
                 </div>
             </div>
             <div class="chatRight">
@@ -260,9 +269,163 @@ EvPNG.fix('body, div, ul, img, li, input, a, span ,label');
 </div>
 <div class="keBottom">
 </div>
-<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="./plugins/layer/layer.js"></script>
-<script type="text/javascript" src="./plugins/layui/layui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{ static_url('layer/layer.js') }}"></script>
+<script type="text/javascript" src="{{ static_url('layui/layui.js') }}"></script>
+<script type="text/javascript">
+$(function(){
 
+    if (!window.console) window.console = {};
+    if (!window.console.log) window.console.log = function() {};
+    $("#send").on("click",function(){
+        $("#messageform").submit();
+    });
+    $("#messageform").on("submit",function(){
+        newMessage($(this));
+        return false;
+    });
+    $("#messageform").on("keypress",function(e){
+        if(e.keyCode==13){
+            newMessage($(this));
+            return false;
+        }
+        return true;
+    });
+    $("#message").select();
+    updater.poll();
+    setHeight()
+});
+
+function newMessage(form){
+    var message=form.formToDict();
+    var $send=$("#send")
+    var disabled=form.find($send)
+    disabled.disable();
+    $.postJSON("/a/message/new",message,function(response){
+        updater.showMessage(response);
+        if(message.id){
+            form.parent().remove()
+        }
+        else{
+            var textarea=$("#message")
+            form.find(textarea).val("").select();
+            disabled.enable();
+        }
+    });
+}
+
+function getCookie(c_name){
+    if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return "";
+}
+
+jQuery.postJSON=function(url,args,callback){
+    args._xsrf=getCookie("_xsrf");
+    $.ajax({
+        url:url,
+        data:$.param(args),
+        dataType:"text",
+        type:"POST",
+        success:function(response){
+            if(callback)callback(eval("("+response+")"));
+        },
+        error:function(response){
+            console.log("ERROR:",response)
+        }
+    });
+}
+
+jQuery.fn.formToDict = function() {
+    var fields = this.serializeArray();
+    var json = {};
+    for (var i = 0; i < fields.length; i++) {
+        json[fields[i].name] = fields[i].value;
+    }
+    if (json.next) delete json.next;
+    return json;
+};
+
+jQuery.fn.disable = function() {
+    this.enable(false);
+    return this;
+};
+
+jQuery.fn.enable = function(opt_enable) {
+    if (arguments.length && !opt_enable) {
+        this.attr("disabled", "disabled");
+    } else {
+        this.removeAttr("disabled");
+    }
+    return this;
+};
+
+var updater = {
+    errorSleepTime: 500,
+    cursor: null,
+
+    poll: function() {
+        var args = {"_xsrf": getCookie("_xsrf")};
+        console.log(args._xsrf)
+        if (updater.cursor) args.cursor = updater.cursor;
+        $.ajax({url: "/a/message/updates", type: "POST", dataType: "text",
+                data: $.param(args), success: updater.onSuccess,
+                error: updater.onError});
+    },
+
+    onSuccess: function(response) {
+        try {
+            updater.newMessages(eval("(" + response + ")"));
+        } catch (e) {
+            updater.onError();
+            return;
+        }
+        updater.errorSleepTime = 500;
+        window.setTimeout(updater.poll, 0);
+    },
+
+    onError: function(response) {
+        updater.errorSleepTime *= 2;
+        console.log("Poll error; sleeping for", updater.errorSleepTime, "ms");
+        window.setTimeout(updater.poll, updater.errorSleepTime);
+    },
+
+    newMessages: function(response) {
+        if (!response.messages) return;
+        var messages = response.messages;
+        updater.cursor = messages[messages.length - 1].id;
+        console.log(messages.length, "new messages, cursor:", updater.cursor);
+        for (var i = 0; i < messages.length; i++) {
+            updater.showMessage(messages[i]);
+        }
+    },
+
+    showMessage: function(message) {
+        var existing = $("#m" + message.id);
+        if (existing.length > 0) return;
+        var node = $(message.html);
+        node.hide();
+        console.log(node)
+        $("#inbox").append(node);
+        node.slideDown();
+        setHeight()
+    }
+};
+
+//设置最新内容一致在底部
+function setHeight()
+{
+   $('.chat01_content').scrollTop($('.chat01_content')[0].scrollHeight);  
+}
+</script>
 </body>
 </html>
